@@ -5787,7 +5787,9 @@
                 App.state.offers = toMap(data.offers);
                 App.state.activeShift = data.activeShift || null;
                 App.state.waitingList = data.waitingList || [];
-                App.state.notifications = data.notifications || [];
+               App.state.notifications = Array.isArray(data.notifications)
+    ? data.notifications
+    : (data.notifications ? Object.values(data.notifications) : []);
                 App.state.invoices = toMap(data.invoices);
                 App.state.auditLog = data.auditLog || [];
                 App.state.shifts = toMap(data.shifts);
