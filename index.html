@@ -14722,7 +14722,7 @@ ${el.innerHTML}
                 const btn = document.getElementById('refresh-btn');
                 if (!silent && btn) btn.classList.add('spinning');
                 if (!silent) App.UI.toast('جاري تحديث البيانات...', 'info');
-                try {
+               try {
                     // Re-init Firebase data
                     await App.Firebase.init();
                     // Re-render all visible components
@@ -14746,10 +14746,9 @@ ${el.innerHTML}
                 if (page === 'payroll') App.Payroll.render();
                     App.LiveSessions.render();
                     if (!silent) App.UI.toast('✅ تم تحديث النظام بنجاح', 'success');
-               } catch(e) {
-    console.error('SystemRefresh error:', e);
-    if (!silent) App.UI.toast('تعذر التحديث الكامل — تحقق من الاتصال', 'warning');
-}
+                } catch(e) {
+                    console.error('SystemRefresh error:', e);
+                    if (!silent) App.UI.toast('تعذر التحديث الكامل — تحقق من الاتصال', 'warning');
                 } finally {
                     if (!silent && btn) btn.classList.remove('spinning');
                 }
